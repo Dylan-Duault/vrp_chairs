@@ -87,7 +87,7 @@ function sit(object)
 		end
 		local objloc = GetEntityCoords(object)
 		SetEntityCoords(ped, objloc.x, objloc.y, objloc.z+objinfo.verticalOffset)
-		SetEntityHeading(ped, GetEntityHeading(object)-90.0)
+		SetEntityHeading(ped, GetEntityHeading(object)+objinfo.angularOffset)
 		FreezeEntityPosition(ped, true)
 		sitting = true
 		TaskStartScenarioInPlace(ped, objinfo.scenario, 0, true)
