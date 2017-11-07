@@ -90,6 +90,6 @@ function sit(object)
 		SetEntityHeading(ped, GetEntityHeading(object)+objinfo.angularOffset)
 		FreezeEntityPosition(ped, true)
 		sitting = true
-		TaskStartScenarioInPlace(ped, objinfo.scenario, 0, true)
+		TaskStartScenarioAtPosition(ped, objinfo.scenario, objloc.x, objloc.y, objloc.z-objinfo.verticalOffset, GetEntityHeading(object)+180.0, 0, true, true)
 	end
 end
