@@ -30,7 +30,11 @@ Citizen.CreateThread(function()
 		  	local x,y,z = table.unpack(GetEntityCoords(object))
 		  	DrawMarker(0, x, y, z+1.5, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.5, 0.5, 0.5, 0, 255, 0, 100, false, true, 2, false, false, false, false)
 		  	if IsControlJustPressed(0, 38) then
-		  		sit(object)
+				if not vRP.isInComa() then -- Prevent user from glitching when they are in coma
+					sit(object)
+				else
+					Citizen.Wait(math.random(40000,80000)) -- Disable script for a time (if not done, the player can glitch when he is respawning), Random time to prevent user to wait a specific time to press E again and glitch.
+				end
 		  	end
 		  end
 		  if sitting then
