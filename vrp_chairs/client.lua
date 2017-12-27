@@ -48,7 +48,10 @@ Citizen.CreateThread(function()
 			if IsControlJustPressed(0, 23) then
 				ClearPedTasks(ped)
 				sitting = false
-				SetEntityCoords(ped, lastPos)
+				local x,y,z = table.unpack(lastPos)
+				if GetDistanceBetweenCoords(x, y, z,GetEntityCoords(ped)) < 10 then
+					SetEntityCoords(ped, lastPos)
+				end
 				FreezeEntityPosition(ped, false)
 				FreezeEntityPosition(currentSitObj, false)
 				CHserver.unoccupyObj({currentSitObj})
